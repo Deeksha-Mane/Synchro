@@ -1,4 +1,4 @@
-# Buffer Logic Fix - Scheduling Issue Resolution
+# Buffer Logic Fix - Scheduling Issue Resolution.
 
 ## Problem Identified
 The scheduling system was processing cars from buffers **before** the buffer lines were full, violating the core business rule that states:

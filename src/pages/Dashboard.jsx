@@ -16,24 +16,27 @@ import CustomSimulationPage from './CustomSimulation';
 export default function Dashboard() {
   return (
     <AdvancedAlgorithmProvider>
-      <div className="flex h-screen bg-gray-100">
+      <div className="flex h-screen bg-gray-50 overflow-hidden">
         <Sidebar />
 
-        <div className="flex-1 overflow-auto">
-          <Routes>
-            <Route index element={<DashboardHome />} />
-            <Route path="sequencing" element={<ColorSequencingPage />} />
-            <Route path="advanced" element={<AdvancedAlgorithmPage />} />
-            <Route path="custom-simulation" element={<CustomSimulationPage />} />
-            <Route path="buffers" element={<BufferManagementPage />} />
-            <Route path="conveyors" element={<ConveyorLinesPage />} />
-            <Route path="analytics" element={<ProductionAnalyticsPage />} />
-            <Route path="dataset" element={<VehicleDatasetPage />} />
-            <Route path="optimization" element={<MLOptimizationPage />} />
-            <Route path="alerts" element={<SystemAlertsPage />} />
-            <Route path="profile" element={<ProfilePage />} />
-            <Route path="settings" element={<SettingsPage />} />
-          </Routes>
+        {/* Main Content Area with proper scrolling */}
+        <div className="flex-1 flex flex-col min-w-0">
+          <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+            <Routes>
+              <Route index element={<DashboardHome />} />
+              <Route path="sequencing" element={<ColorSequencingPage />} />
+              <Route path="advanced" element={<AdvancedAlgorithmPage />} />
+              <Route path="custom-simulation" element={<CustomSimulationPage />} />
+              <Route path="buffers" element={<BufferManagementPage />} />
+              <Route path="conveyors" element={<ConveyorLinesPage />} />
+              <Route path="analytics" element={<ProductionAnalyticsPage />} />
+              <Route path="dataset" element={<VehicleDatasetPage />} />
+              <Route path="optimization" element={<MLOptimizationPage />} />
+              <Route path="alerts" element={<SystemAlertsPage />} />
+              <Route path="profile" element={<ProfilePage />} />
+              <Route path="settings" element={<SettingsPage />} />
+            </Routes>
+          </div>
         </div>
       </div>
     </AdvancedAlgorithmProvider>
@@ -1981,58 +1984,59 @@ function AdvancedAlgorithmPage() {
         </div>
       )}
 
-      {/* Feature Comparison */}
-      <div className="mt-8 bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-semibold mb-6">Algorithm Comparison</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b">
-                <th className="text-left py-3 px-4">Feature</th>
-                <th className="text-center py-3 px-4">Basic Mode</th>
-                <th className="text-center py-3 px-4">Advanced Mode</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y">
-              <tr>
-                <td className="py-3 px-4 font-medium">Color Sequencing</td>
-                <td className="py-3 px-4 text-center">✅ Standard</td>
-                <td className="py-3 px-4 text-center">✅ Enhanced</td>
-              </tr>
-              <tr>
-                <td className="py-3 px-4 font-medium">Buffer Management</td>
-                <td className="py-3 px-4 text-center">✅ Basic</td>
-                <td className="py-3 px-4 text-center">✅ Advanced</td>
-              </tr>
-              <tr>
-                <td className="py-3 px-4 font-medium">Color Stop/Resume</td>
-                <td className="py-3 px-4 text-center">❌</td>
-                <td className="py-3 px-4 text-center">✅ With Reasons</td>
-              </tr>
-              <tr>
-                <td className="py-3 px-4 font-medium">Buffer Fault Handling</td>
-                <td className="py-3 px-4 text-center">❌</td>
-                <td className="py-3 px-4 text-center">✅ Automatic Rerouting</td>
-              </tr>
-              <tr>
-                <td className="py-3 px-4 font-medium">Intelligent Fallbacks</td>
-                <td className="py-3 px-4 text-center">❌</td>
-                <td className="py-3 px-4 text-center">✅ Multi-tier</td>
-              </tr>
-              <tr>
-                <td className="py-3 px-4 font-medium">50% Utilization Rule</td>
-                <td className="py-3 px-4 text-center">❌</td>
-                <td className="py-3 px-4 text-center">✅ Automatic</td>
-              </tr>
-              <tr>
-                <td className="py-3 px-4 font-medium">Enhanced Metrics</td>
-                <td className="py-3 px-4 text-center">❌</td>
-                <td className="py-3 px-4 text-center">✅ Fault Tracking</td>
-              </tr>
-            </tbody>
-          </table>
+      {/* Advanced Features Showcase */}
+      {isAdvancedMode && (
+        <div className="mt-8 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl shadow-lg p-8 border border-indigo-200">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-2xl font-bold text-indigo-900 mb-2">🚀 Advanced Features Active</h2>
+              <p className="text-indigo-700">Enhanced capabilities for optimal production control</p>
+            </div>
+            <div className="flex items-center space-x-2">
+              <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+              <span className="text-sm font-medium text-green-700">LIVE</span>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-indigo-100">
+              <div className="flex items-center space-x-3 mb-3">
+                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <span className="text-blue-600 text-lg">🎨</span>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800">Smart Color Control</h3>
+                  <p className="text-sm text-gray-600">Dynamic stop/resume with tracking</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-indigo-100">
+              <div className="flex items-center space-x-3 mb-3">
+                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <span className="text-orange-600 text-lg">⚡</span>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800">Buffer Intelligence</h3>
+                  <p className="text-sm text-gray-600">Auto-rerouting & fault handling</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-indigo-100">
+              <div className="flex items-center space-x-3 mb-3">
+                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                  <span className="text-green-600 text-lg">📊</span>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800">Enhanced Analytics</h3>
+                  <p className="text-sm text-gray-600">Real-time metrics & insights</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

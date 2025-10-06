@@ -91,12 +91,12 @@ The app is already configured with Firebase. Make sure to:
 
 ### Algorithm Features
 
-✅ **Real-time Vehicle Processing**: Fetches vehicles from Firestore dataset
-✅ **Intelligent Buffer Allocation**: Color-priority based assignment
-✅ **Changeover Minimization**: Smart color grouping to reduce setup time
-✅ **Overflow Prevention**: Dynamic load balancing across buffer lines
-✅ **Performance Metrics**: Live JPH, efficiency, and changeover tracking
-✅ **Firestore Integration**: Real-time data persistence and updates
+- ✅ **Real-time Vehicle Processing**: Fetches vehicles from Firestore dataset
+- ✅ **Intelligent Buffer Allocation**: Color-priority based assignment
+- ✅ **Changeover Minimization**: Smart color grouping to reduce setup time
+- ✅ **Overflow Prevention**: Dynamic load balancing across buffer lines
+- ✅ **Performance Metrics**: Live JPH, efficiency, and changeover tracking
+- ✅ **Firestore Integration**: Real-time data persistence and updates
 
 ### Usage Instructions
 
